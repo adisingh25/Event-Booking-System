@@ -32,11 +32,25 @@ exports.signupUser = async (req, res, next) => {
     }
 };
 
-exports.loginUser = async (req, res) => {
+exports.loginUser = async (req, res, next) => {
+	const { email, password } = req.body;
 
-    const {email, password} = req.body();
+	const user = await User.findOne({ email });
 
+	if (!user) {
+		return res.status(401).json({
+			status: 401,
+			message: "No such user exist, please register first",
+		});
+	}
 
+    //check the password before login
 
-    res.status(200).json({"success": "ok"})
-}
+	const token = user.getJwtToken();
+
+	return res.status(200).json({
+		status: 200,
+		message: "Login Successful",
+		token,
+	});
+};
