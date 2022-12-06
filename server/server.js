@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+const cors = require('cors')
 
 const bodyParser = require('body-parser')
 
@@ -9,6 +10,7 @@ const port = process.env.PORT
 const userRouter = require('./routes/userRoute')
 require('./config/db')
 
+app.use(cors())
 app.use(express.json())
 app.use(bodyParser.urlencoded({
     extended: true,

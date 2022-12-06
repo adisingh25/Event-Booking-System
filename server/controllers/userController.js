@@ -7,6 +7,8 @@ exports.signupUser = async (req, res, next) => {
         const {
             name, phoneNumber, email, password
         } = req.body;
+
+    
         
     
         if (!email || !name || !phoneNumber || !password) {
@@ -51,6 +53,8 @@ exports.loginUser = async (req, res, next) => {
 	return res.status(200).json({
 		status: 200,
 		message: "Login Successful",
+        name : user.name,
 		token,
+
 	});
 };

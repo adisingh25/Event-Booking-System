@@ -32,7 +32,7 @@ const Customer = (props) => {
             </div>
             <center>
             <h3>
-                Hi! Aditya, Hope you are doing good!!
+                Hi! {props.name}, Hope you are doing good!!
             </h3>
             </center>
            
