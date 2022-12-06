@@ -1,7 +1,9 @@
+
 import LoginModal from "./LoginModal";
 import SignUpModal from "./SignUpModal";
 const Header = (props) => {
     const onLogin = props.onLogin
+    const onChange = props.onChange
     return (
         <div>
             <header class="p-3" Style="background-color : black;">
@@ -14,9 +16,9 @@ const Header = (props) => {
                         <h4 class="mx-auto text-warning" >Welcome to TULIP Banquet</h4>
                         <div class="text-end">
                             <button type="button" class="btn btn-outline-light me-2" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
-                            <LoginModal onLogin={onLogin}/>
+                            <LoginModal onLogin={onLogin} onChange={onChange}/>
                             <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#signupModal">Sign-up</button>
-                            <SignUpModal />
+                            <SignUpModal onLogin={onLogin} onChange={onChange}/>
                         </div>
                     </div>
                 </div>
