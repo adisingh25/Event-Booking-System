@@ -26,7 +26,7 @@ const LoginModal = (props) => {
       })
     
     console.log(info.token)
-    onChange(info.name)
+    onChange(info.name, info.email)
     if(info.token !== undefined) {
         goAhead=true
     }

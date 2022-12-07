@@ -48,7 +48,7 @@ const SignUpModal = (props) => {
         if(goAhead === true) {
             console.log(goAhead + 'from signUpmodal')
             loginme()
-            onChange(myname)
+            onChange(myname, myemail)
         }
     }
     return (

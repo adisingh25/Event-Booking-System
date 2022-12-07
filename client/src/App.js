@@ -10,6 +10,7 @@ function App() {
 
   const [loggedIn, setloggedIn] = useState(false)
   const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
 
     
 
@@ -19,8 +20,10 @@ function App() {
     setloggedIn(log)
   }
 
-  const onChange = (customer) => {
+  const onChange = (customer, customerEmail) => {
     setName(customer)
+    setEmail(customerEmail)
+    console.log('name : ' + customer + 'Email : ' + customerEmail)
   }
 
   
@@ -35,7 +38,7 @@ function App() {
         </>
 
       }
-      {loggedIn === true && <Customer onLogout={changeLog} name={name}/>}
+      {loggedIn === true && <Customer onLogout={changeLog} name={name} email={email}/>}
 
     </div>
   );

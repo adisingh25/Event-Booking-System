@@ -54,6 +54,7 @@ exports.loginUser = async (req, res, next) => {
 		status: 200,
 		message: "Login Successful",
         name : user.name,
+        email : user.email,
 		token,
 
 	});
