@@ -1,33 +1,31 @@
 
 
 const CancelEventModal = (props) => {
-  // const getOrders = props.getOrder
+  const getOrders = props.getOrder
 
-//   const base_api = "http://localhost:4000/api/v1";
+  const base_api = "http://localhost:4000/api/v1/event";
 
-  // const cancelBooking = async() => {
-//       const info = await fetch(base_api + '/delete', {
-//     method: 'POST',
-//     headers: {
-//       "Content-Type": "application/json"
-//     },
-//     body: JSON.stringify({
-//       email: props.email,
-//     })
-//   }).then((res) => res.json())
-//     .catch((e) => {
-//       console.log(e)
-//     })
+  const cancelBooking = async() => {
+      const info = await fetch(base_api + '/delete', {
+    method: 'DELETE',
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      email: props.email,
+    })
+  }).then((res) => res.json())
+    .catch((e) => {
+      console.log(e)
+    })
 
-//   // console.log(info.token)
-//   if (info.status === 200) {
-//     getOrders(props.email)
-//   }
-// }
-
-const cancelBooking = () => {
-  console.log('Called me')
+  // console.log(info.token)
+  if (info.status === 200) {
+    getOrders(props.email)
+  }
 }
+
+
 
 
 return (

@@ -3,51 +3,49 @@
 const BookEventModal = (props) => {
 
 
-//    const base_api = "http://localhost:4000/api/v1";
+   const base_api = "http://localhost:4000/api/v1/event";
 
 
-//     const bookingTime = async (organizationName, purpose, start, end, theme, email, fooding ) => {
-//         const info = await fetch(base_api + '/create', {
-//           method: 'POST',
-//           headers: {
-//             "Content-Type": "application/json"
-//           },
-//           body: JSON.stringify({
-//             organizationName : organizationName,
-//             purpose : purpose,
-//             start : start,
-//             end : end,
-//             theme : theme,
-//             email : email,
-//             fooding : fooding
-//           })
-//         }).then((res) => res.json())
-//           .catch((e) => {
-//             console.log(e)
-//           })
-//       }
+    const bookingTime = async (organizationName, purpose, start, end, theme, email, fooding ) => {
+        const info = await fetch(base_api + '/create', {
+          method: 'POST',
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            organizationName : organizationName,
+            purpose : purpose,
+            start : start,
+            end : end,
+            theme : theme,
+            userId : email,
+            fooding : fooding
+          })
+        }).then((res) => res.json())
+          .catch((e) => {
+            console.log(e)
+          })
 
-    // const eventinfo = async() => {
-    //     const organizationName = document.getElementById('orgName').value
-    //     const purpose = document.getElementById('eventPurpose').value
-    //     const start = document.getElementById('startDate').value
-    //     const end = document.getElementById('endDate').value
-    //     const theme = document.getElementById('themes').value
-    //     const foodElement = document.getElementById('fooding')
-    //     let   fooding = false
-    //     if(foodElement.checked === true) {
-    //         fooding = true
-    //     }
+          console.log(info)
+      }
 
-    //     await bookingTime(organizationName, purpose, start, end, theme, email, fooding)
-    //     console.log(organizationName, purpose, start, end, theme, props.email, fooding)
+    const eventinfo = async() => {
+        const organizationName = document.getElementById('orgName').value
+        const purpose = document.getElementById('eventPurpose').value
+        const start = document.getElementById('startDate').value
+        const end = document.getElementById('endDate').value
+        const theme = document.getElementById('themes').value
+        const foodElement = document.getElementById('fooding')
+        let   fooding = false
+        if(foodElement.checked === true) {
+            fooding = true
+        }
+
+        await bookingTime(organizationName, purpose, start, end, theme, props.email, fooding)
+        console.log(organizationName, purpose, start, end, theme, props.email, fooding)
+        props.getOrder()
 
 
-    // }
-
-
-    const eventinfo = () => {
-        console.log('Called ME')
     }
     
 
