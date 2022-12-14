@@ -43,6 +43,7 @@ const Customer = (props) => {
 
             // console.log('orders ' + orders.start)
             // console.log('info from customer ' + info)
+            // console.log(props.email)
       }
 
 
@@ -71,7 +72,7 @@ const Customer = (props) => {
                 <button type="button" class="btn btn-warning btn-lg me-2" data-bs-toggle="modal" data-bs-target="#bookeventModal">New Booking</button>
                 <BookEventModal email={props.email} getOrder={getOrders}/>
                 <button type="button" class="btn btn-warning btn-lg me-2" data-bs-toggle="modal" data-bs-target="#updateeventModal">Update Current Booking</button>
-                <UpdateEventModal email={props.email}/>
+                <UpdateEventModal email={props.email} order={orders} getOrder={getOrders}/>
                 <button type="button" class="btn btn-danger btn-lg me-2" data-bs-toggle="modal" data-bs-target="#canceleventModal">Cancel Booking</button>
                 <CancelEventModal email={props.email} getOrder={getOrders}/>
             </div>
@@ -79,7 +80,7 @@ const Customer = (props) => {
             <h3>
                 Hi! {props.name}, Hope you are doing good!!
             </h3>
-            {display && <Order id={orders._id} purpose={orders.purpose} start={orders.start} end={orders.end}/>}
+            {display && <Order id={orders._id} purpose={orders.purpose} start={orders.start} end={orders.end} theme={orders.theme} fooding={orders.fooding}/>}
             </center>
            
 

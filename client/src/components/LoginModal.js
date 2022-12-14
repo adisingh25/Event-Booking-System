@@ -25,7 +25,7 @@ const LoginModal = (props) => {
         goAhead = false
       })
     
-    console.log(info.token)
+    // console.log(info.token)
     onChange(info.name, info.email)
     if(info.token !== undefined) {
         goAhead=true
@@ -37,7 +37,7 @@ const LoginModal = (props) => {
     const password = document.getElementById('floatingPassword').value
     await loginTime(email,password)
     if(goAhead === true) {
-        console.log(goAhead + 'from loginmodal')
+        // console.log(goAhead + 'from loginmodal')
         loginme()
        
     }

@@ -16,14 +16,14 @@ function App() {
 
   const changeLog = () => {
     let log = !loggedIn
-    console.log('changing log from app')
+    // console.log('changing log from app')
     setloggedIn(log)
   }
 
   const onChange = (customer, customerEmail) => {
     setName(customer)
     setEmail(customerEmail)
-    console.log('name : ' + customer + 'Email : ' + customerEmail)
+    // console.log('name : ' + customer + 'Email : ' + customerEmail)
   }
 
   

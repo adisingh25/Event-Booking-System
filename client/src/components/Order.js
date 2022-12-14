@@ -5,6 +5,7 @@ const Order = (props) => {
 
     const sdate = props.start.slice(0,10)
     const edate = props.end.slice(0,10)
+    const food = props.fooding
     
     return (
         <div>
@@ -18,6 +19,11 @@ const Order = (props) => {
                     START - {sdate} 
                     <br />
                     TO - {edate}
+                    <br />
+                    Theme - {props.theme}
+                    <br />
+                    {food && <>Fooding - Included</>}
+                    {food === false && <>Fooding - Not Included</>}
                 </Card>
         </div>
     )

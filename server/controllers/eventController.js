@@ -27,7 +27,7 @@ exports.createEvent = async (req, res) => {
         message: "You cannot book mulitple event at a time"
       })
     }
-    if (!organizationName || !purpose || !start || !end || !theme || !fooding) {
+    if (!organizationName || !purpose || !start || !end || !theme) {
       return res.status(401).json({
         status: 401,
         message: "Please provide all required details",
@@ -85,16 +85,12 @@ exports.getEvent = async (req, res) => {
 
 //patch
 exports.updateEvent = async (req, res) => {
-  console.log(req);
-  const { email, theme, fooding } = req.body;
+  // console.log(req);
+  const { userId, theme, fooding } = req.body;
+  console.log(userId, theme, fooding);
 
   try {
-    const event = await Event.findOne({ userId: email });
-
-    event.theme = theme;
-    event.fooding = fooding;
-
-    event.save();
+    await Event.updateOne({userId: userId}, {theme: theme, fooding: fooding})
     res.status(200).json({
       status: 200,
       message: "Event updated successfully",
@@ -102,6 +98,7 @@ exports.updateEvent = async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(401).json({
+      error,
       status: 400,
       message: "Something went wrong",
     });
@@ -114,8 +111,9 @@ exports.deleteEvent = async (req, res) => {
   const { email } = req.body;
 
   try {
-    await Event.remove({ userId: email });
+    let deletedEvent = await Event.remove({ userId: email });
     res.status(200).json({
+      deletedEvent,
       status: 200,
       message: "Event deleted successfully",
     });
